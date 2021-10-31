@@ -1,14 +1,16 @@
 import asyncio
-import sp110e
+from src.SP110E.Driver import Driver, discover
 import random
 
 
 async def main():
-    device = sp110e.SP110E()
+    device = Driver()
     await device.connect('AF:00:10:01:C8:AF')
-    device.print_info()
-    await device.set_color([255, 0, 0])
+    await device.set_ic_model('UCS1903')
     await device.set_sequence('GRB')
+    device.print_info()
+    await device.set_state(True)
+    await device.set_color([255, 0, 0])
     # await device.set_pixels(60)
     # await device.set_brightness(1)
     # await device.set_white(0)
