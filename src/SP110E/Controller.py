@@ -22,80 +22,75 @@ class Controller:
         """Close connection to device."""
         await self.Driver.disconnect()
 
-    async def update(self) -> None:
-        """Update device state."""
-        await self.Driver.get_info()
-
     async def configure(self, ic_model: str, sequence: str, pixels: int) -> None:
-        await self.Driver.set_ic_model(ic_model)
-        await self.Driver.set_sequence(sequence)
-        await self.Driver.set_pixels(pixels)
+        await self.Driver.write_parameters({
+            'ic_model': ic_model,
+            'sequence': sequence,
+            'pixels': pixels
+        })
 
-    async def switch_on(self) -> None:
+    async def switch_on(self) -> dict:
         """Switch device on."""
-        await self.Driver.set_state(True)
+        return await self.__write_parameter('state', True)
 
-    async def switch_off(self) -> None:
+    async def switch_off(self) -> dict:
         """Switch device off."""
-        await self.Driver.set_state(False)
+        return await self.__write_parameter('state', True)
 
     async def toggle(self) -> bool:
         """Toggle device state between on/off."""
-        if self.Driver.get_state():
-            # Switch off
-            await self.Driver.set_state(False)
+        if self.__get_parameter('state'):
+            await self.__write_parameter('state', False)
         else:
-            # Switch on
-            await self.Driver.set_state(True)
-        return self.Driver.get_state()
+            await self.__write_parameter('state', True)
+        return self.__get_parameter('state')
 
     async def set_mode(self, mode: int) -> None:
         """Set work mode (0-121). 0 - auto mode (demo)."""
-        if mode == 0:
-            await self.Driver.auto_mode()
-        else:
-            await self.Driver.set_mode(mode)
+        await self.__write_parameter('mode', mode)
 
     async def set_speed(self, speed: int) -> None:
         """Set speed of automatic modes (0-255)."""
-        await self.Driver.set_speed(speed)
+        await self.__write_parameter('speed', speed)
 
     async def set_brightness(self, brightness: int) -> None:
         """Set LED brightness (0-255)."""
-        await self.Driver.set_brightness(brightness)
+        await self.__write_parameter('brightness', brightness)
 
     async def set_color(self, color: [int, int, int]) -> None:
         """Set static color in RGB format (0-255)."""
-        await self.Driver.set_color(color)
+        await self.__write_parameter('color', color)
 
     async def set_white(self, white: int) -> None:
         """Set brightness of white LED (0-255)."""
-        await self.Driver.set_white(white)
+        await self.__write_parameter('white', white)
 
     def is_on(self) -> bool:
         """Check device is On."""
-        return self.Driver.get_state()
+        return self.__get_parameter('state')
 
     def get_mode(self) -> int:
         """Get work mode (0-121). 0 - auto mode (demo)."""
-        return self.Driver.get_mode()
+        return self.__get_parameter('mode')
 
     def get_speed(self) -> int:
         """Get speed of automatic modes (0-255)."""
-        return self.Driver.get_speed()
+        return self.__get_parameter('speed')
 
     def get_brightness(self) -> int:
         """Get LED brightness (0-255)."""
-        return self.Driver.get_brightness()
+        return self.__get_parameter('brightness')
 
     def get_color(self) -> [int, int, int]:
         """Get static color in RGB format (0-255)."""
-        return self.Driver.get_color()
+        return self.__get_parameter('color')
 
     def get_white(self) -> int:
         """Get brightness of white LED (0-255)."""
-        return self.Driver.get_white()
+        return self.__get_parameter('white')
 
-    def print_info(self):
-        """Print device info."""
-        self.Driver.print_info()
+    def __get_parameter(self, parameter: str):
+        return self.Driver.get_parameters()[parameter]
+
+    async def __write_parameter(self, parameter: str, value):
+        return await self.Driver.write_parameters({parameter: value})
