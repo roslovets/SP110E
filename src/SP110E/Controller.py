@@ -1,5 +1,4 @@
-import asyncio
-from Driver import Driver, discover as driver_discover
+from SP110E.Driver import Driver, discover as driver_discover
 
 
 class Controller:
@@ -7,6 +6,7 @@ class Controller:
     Driver = None
 
     def __init__(self):
+        """On object creation."""
         self.Driver = Driver()
 
     @staticmethod
