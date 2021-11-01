@@ -1,2 +1,2 @@
 bleak==0.13.0
-syncer=1.3.0
+syncer==1.3.0
