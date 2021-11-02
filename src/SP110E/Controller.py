@@ -35,7 +35,7 @@ class Controller:
 
     async def switch_off(self) -> dict:
         """Switch device off."""
-        return await self.__write_parameter('state', True)
+        return await self.__write_parameter('state', False)
 
     async def toggle(self) -> bool:
         """Toggle device state between on/off."""
