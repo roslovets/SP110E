@@ -4,10 +4,12 @@ from SP110E.Driver import Driver, discover as driver_discover
 class Controller:
     """High-level SP110E asynchronous controller."""
     Driver = None
+    MACAddress: str = None
 
-    def __init__(self):
+    def __init__(self, mac_address: str = None):
         """On object creation."""
         self.Driver = Driver()
+        self.MACAddress = mac_address
 
     @staticmethod
     async def discover() -> list:
@@ -16,7 +18,9 @@ class Controller:
 
     async def connect(self, mac_address: str):
         """Establish BLE connection to device."""
-        await self.Driver.connect(mac_address)
+        if mac_address:
+            self.MACAddress = mac_address
+        await self.Driver.connect(self.MACAddress)
 
     async def disconnect(self) -> None:
         """Close connection to device."""

@@ -6,9 +6,9 @@ class ControllerSync(Controller):
     """Synchronous adapter for high-level SP110E asynchronous controller."""
     Controller = None
 
-    def __init__(self):
+    def __init__(self, mac_address: str = None):
         """On object creation."""
-        super().__init__()
+        super().__init__(mac_address)
 
     @sync
     async def discover(self) -> list:
