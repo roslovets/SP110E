@@ -16,7 +16,7 @@ class ControllerSync(Controller):
         return await super().discover()
 
     @sync
-    async def connect(self, mac_address: str):
+    async def connect(self, mac_address: str = None):
         """Establish BLE connection to device."""
         await super().connect(mac_address)
 

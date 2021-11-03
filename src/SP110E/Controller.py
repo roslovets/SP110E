@@ -17,7 +17,7 @@ class Controller:
         """Discover BLE devices."""
         return await driver_discover()
 
-    async def connect(self, mac_address: str):
+    async def connect(self, mac_address: str = None):
         """Establish BLE connection to device."""
         if mac_address:
             self.MACAddress = mac_address
