@@ -5,6 +5,7 @@ class Controller:
     """High-level SP110E asynchronous controller."""
     Driver = None
     MACAddress: str = None
+    Connected: bool = False
 
     def __init__(self, mac_address: str = None):
         """On object creation."""
@@ -21,10 +22,16 @@ class Controller:
         if mac_address:
             self.MACAddress = mac_address
         await self.Driver.connect(self.MACAddress)
+        self.Connected = True
 
     async def disconnect(self) -> None:
         """Close connection to device."""
         await self.Driver.disconnect()
+        self.Connected = False
+
+    def is_connected(self):
+        """check device is connected."""
+        return self.Connected
 
     async def configure(self, ic_model: str, sequence: str, pixels: int) -> None:
         await self.Driver.write_parameters({
