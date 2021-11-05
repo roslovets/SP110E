@@ -31,7 +31,7 @@ class Controller:
 
     def is_connected(self):
         """check device is connected."""
-        return self.Connected
+        return self.Driver.is_connected()
 
     async def configure(self, ic_model: str, sequence: str, pixels: int) -> None:
         await self.Driver.write_parameters({

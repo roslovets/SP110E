@@ -16,6 +16,10 @@ class Driver:
     __Modes = tuple(range(0, 122))
     __Flag = None
 
+    def __init__(self):
+        """Initialize object."""
+        self.__handle_parameters(bytearray([0] * 12))
+
     async def connect(self, mac_address: str):
         """Establish BLE connection to device."""
         device = await BleakScanner.find_device_by_address(mac_address, timeout=5.0)
@@ -29,6 +33,10 @@ class Driver:
     async def disconnect(self) -> None:
         """Close connection to device."""
         await self.Client.disconnect()
+
+    async def is_connected(self) -> bool:
+        """Check connection to device."""
+        return await self.Client.is_connected()
 
     async def send_command(self, command_byte: hex, data_bytes: [hex, hex, hex] = (0x00, 0x00, 0x00)):
         """Send command with data."""
