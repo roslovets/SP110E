@@ -3,10 +3,10 @@ from SP110E.Controller import Controller
 
 
 async def main():
-    device = Controller()
-    await device.connect('AF:00:10:01:C8:AF')
+    device = Controller('AF:00:10:01:C8:AF', timeout=2, retries=1)
     await device.switch_on()
     await device.set_brightness(255)
+    await device.switch_off()
     await device.disconnect()
 
 if __name__ == "__main__":
