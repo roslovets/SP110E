@@ -20,9 +20,9 @@ class Driver:
         """Initialize object."""
         self.__handle_parameters(bytearray([0] * 12))
 
-    async def connect(self, mac_address: str):
+    async def connect(self, mac_address: str, timeout: float = 3.0):
         """Establish BLE connection to device."""
-        device = await BleakScanner.find_device_by_address(mac_address, timeout=5.0)
+        device = await BleakScanner.find_device_by_address(mac_address, timeout=timeout)
         if not device:
             raise BleakError(f"A device with address {mac_address} could not be found.")
         self.Client = BleakClient(device)
