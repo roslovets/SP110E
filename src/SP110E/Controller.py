@@ -87,6 +87,10 @@ class Controller:
         """Set device MAC address."""
         self.MACAddress = mac_address
 
+    def get_mac_address(self) -> str:
+        """Get device MAC address."""
+        return self.MACAddress
+
     def is_on(self) -> bool:
         """Check device is On."""
         return self.__get_parameter('state')
