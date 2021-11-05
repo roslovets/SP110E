@@ -100,6 +100,18 @@ class Controller:
         """Get brightness of white LED (0-255)."""
         return self.__get_parameter('white')
 
+    def get_sequences(self) -> tuple:
+        """Get list of supported RGB sequence types."""
+        return self.Driver.get_sequences()
+
+    def get_ic_models(self) -> tuple:
+        """Get list of supported IC models."""
+        return self.Driver.get_ic_models()
+
+    def get_modes(self) -> tuple:
+        """Get list of supported modes."""
+        return self.Driver.get_modes()
+
     def __get_parameter(self, parameter: str):
         return self.Driver.get_parameters()[parameter]
 
