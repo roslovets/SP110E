@@ -34,9 +34,12 @@ class Driver:
         """Close connection to device."""
         await self.Client.disconnect()
 
-    async def is_connected(self) -> bool:
+    def is_connected(self) -> bool:
         """Check connection to device."""
-        return await self.Client.is_connected()
+        if self.Client:
+            return self.Client.is_connected
+        else:
+            return False
 
     async def send_command(self, command_byte: hex, data_bytes: [hex, hex, hex] = (0x00, 0x00, 0x00)):
         """Send command with data."""
