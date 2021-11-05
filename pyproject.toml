@@ -1,10 +1,10 @@
 [tool.poetry]
 name = "sp110e"
-version = "0.5.0"
+version = "0.6.0"
 description = "Control SP110E BLE RGB LED device from computer"
 authors = ["Pavel Roslovets <p.v.roslovets@gmail.com>"]
 license = "MIT"
-readme = "README.MD"
+readme = "README.md"
 homepage = "https://github.com/roslovets/SP110E"
 repository = "https://github.com/roslovets/SP110E"
 keywords = ["SP110E", "RGB", "LED"]

@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.6.0 (2021-11-05)
+### Feature
+* **Controller:** Get_mac_address() ([`6d22149`](https://github.com/roslovets/SP110E/commit/6d221499d1c3889e13ac601e8466adae2f7377ed))
+
 ## v0.5.0 (2021-11-05)
 ### Feature
 * **Controller:** Autoconnect with timeout and retries ([`c1ac04c`](https://github.com/roslovets/SP110E/commit/c1ac04c991e6113ffe8537cabb030f3fd24ae597))
