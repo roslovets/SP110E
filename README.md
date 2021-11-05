@@ -27,6 +27,20 @@ device.set_brightness(255)
 device.disconnect()
 ```
 
+## Development
+
+### Create new release
+
+```bash
+semantic-release publish
+```
+
+### Publish to PyPi
+
+```bash
+poetry publish --build
+```
+
 ## Useful links
 
 - [API Reference](https://gist.github.com/mbullington/37957501a07ad065b67d4e8d39bfe012)

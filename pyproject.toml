@@ -27,5 +27,6 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.semantic_release]
+remove_dist = "false"
 branch = "main"
 version_toml = "pyproject.toml:tool.poetry.version"
