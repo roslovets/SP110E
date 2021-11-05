@@ -13,6 +13,7 @@ class Driver:
         'GS8208', 'SK9822', 'TM1814', 'SK6812_RGBW', 'P9414', 'PG412')
     __Sequences = ('RGB', 'RBG', 'GRB', 'GBR', 'BRG', 'BGR')
     __Characteristic = '0000ffe1-0000-1000-8000-00805f9b34fb'
+    __Modes = tuple(range(0, 122))
     __Flag = None
 
     async def connect(self, mac_address: str):
@@ -53,6 +54,8 @@ class Driver:
                 else:
                     await self.send_command(0xAB)  # Switch off
             elif param == 'mode':
+                if value not in self.__Modes:
+                    raise ValueError(f'Mode is not supported: {value}')
                 if value == 0:
                     await self.send_command(0x06)
                 else:
@@ -62,9 +65,13 @@ class Driver:
             elif param == 'brightness':
                 await self.send_command(0x2A, value)
             elif param == 'ic_model':
+                if value not in self.__ICModels:
+                    raise ValueError(f'IC Model is not supported: {value}')
                 idx = self.__ICModels.index(value)
                 await self.send_command(0x1C, idx)
             elif param == 'sequence':
+                if value not in self.__Sequences:
+                    raise ValueError(f'Sequence is not supported: {value}')
                 idx = self.__Sequences.index(value)
                 await self.send_command(0x3C, idx)
             elif param == 'pixels':
@@ -87,6 +94,10 @@ class Driver:
     def get_ic_models(self) -> tuple:
         """Get list of supported IC models."""
         return self.__ICModels
+
+    def get_modes(self) -> tuple:
+        """Get list of supported modes."""
+        return self.__Modes
 
     def print_info(self):
         """Print device info."""
