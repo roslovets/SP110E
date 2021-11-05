@@ -5,35 +5,37 @@ class Controller:
     """High-level SP110E asynchronous controller."""
     Driver = None
     MACAddress: str = None
-    Connected: bool = False
+    Timeout: float = None
+    Retries: int = None
 
-    def __init__(self, mac_address: str = None):
+    def __init__(self, mac_address: str, timeout: float = 3.0, retries: int = 0):
         """On object creation."""
-        self.Driver = Driver()
         self.MACAddress = mac_address
+        self.Timeout = timeout
+        self.Retries = retries
+        self.Driver = Driver()
 
     @staticmethod
     async def discover() -> list:
         """Discover BLE devices."""
         return await driver_discover()
 
-    async def connect(self, mac_address: str = None):
+    async def connect(self):
         """Establish BLE connection to device."""
-        if mac_address:
-            self.MACAddress = mac_address
-        await self.Driver.connect(self.MACAddress)
-        self.Connected = True
+        await self.__connect()
 
     async def disconnect(self) -> None:
         """Close connection to device."""
-        await self.Driver.disconnect()
-        self.Connected = False
+        if self.Driver.is_connected():
+            await self.Driver.disconnect()
 
     def is_connected(self):
         """check device is connected."""
         return self.Driver.is_connected()
 
     async def configure(self, ic_model: str, sequence: str, pixels: int) -> None:
+        """Configure device."""
+        await self.__connect()
         await self.Driver.write_parameters({
             'ic_model': ic_model,
             'sequence': sequence,
@@ -56,6 +58,11 @@ class Controller:
             await self.__write_parameter('state', True)
         return self.__get_parameter('state')
 
+    async def update(self):
+        """Read device parameters."""
+        await self.__connect()
+        await self.Driver.read_parameters()
+
     async def set_mode(self, mode: int) -> None:
         """Set work mode (0-121). 0 - auto mode (demo)."""
         await self.__write_parameter('mode', mode)
@@ -75,6 +82,10 @@ class Controller:
     async def set_white(self, white: int) -> None:
         """Set brightness of white LED (0-255)."""
         await self.__write_parameter('white', white)
+
+    def set_mac_address(self, mac_address: str) -> None:
+        """Set device MAC address."""
+        self.MACAddress = mac_address
 
     def is_on(self) -> bool:
         """Check device is On."""
@@ -112,8 +123,21 @@ class Controller:
         """Get list of supported modes."""
         return self.Driver.get_modes()
 
+    async def __connect(self):
+        """Establish BLE connection to device with retries."""
+        for i in range(0, self.Retries + 1):
+            try:
+                if not self.Driver.is_connected():
+                    await self.Driver.connect(self.MACAddress, timeout=self.Timeout)
+            except Exception:
+                if i == self.Retries:
+                    raise Exception
+
     def __get_parameter(self, parameter: str):
+        """Get parameter from device."""
         return self.Driver.get_parameters()[parameter]
 
     async def __write_parameter(self, parameter: str, value):
+        """Write parameter to device."""
+        await self.__connect()
         return await self.Driver.write_parameters({parameter: value})
