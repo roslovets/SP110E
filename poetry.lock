@@ -81,8 +81,8 @@ python-versions = "*"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.6"
-content-hash = "30d18d848c9c4ad7078ca75aa74ef744e24176a1de01d4f1ef1e682aca556e80"
+python-versions = ">=3.6"
+content-hash = "a81d44bd36740ba3c18a64e950765fb4257ed278ec85074b161401d988c03e2e"
 
 [metadata.files]
 bleak = [
