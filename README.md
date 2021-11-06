@@ -10,9 +10,9 @@ pip install SP110E
 
 ## Tools
 
-- Controller: High-level SP110E asynchronous controller. Use it only in asynchronous environment (with `asyncio`) 
-- **ControllerSync**: Synchronous adapter for high-level SP110E asynchronous controller. Handy tool to use from Python shell or synchronous (normal) environment
-- Driver: Low-level SP110E asynchronous BLE driver based on bleak library. Use it only if you're sure why.
+- Controller: High-level SP110E asynchronous controller. Use it only in asynchronous environment (with `asyncio`)
+- ControllerSync: Synchronous adapter for high-level SP110E asynchronous controller. Handy tool to use from Python shell or synchronous (normal) environment
+- Driver: Low-level SP110E asynchronous BLE driver based on bleak library. Use it only if you know why
 
 ## Examples
 
@@ -40,6 +40,10 @@ semantic-release publish
 ```bash
 poetry publish --build
 ```
+
+### Integrations
+
+- [SP110E Home Assistant Integration](https://github.com/roslovets/SP110E-HASS)
 
 ## Useful links
 
