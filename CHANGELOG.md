@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.8.0 (2021-11-07)
+### Feature
+* **Controller:** Break configure() method ([`7c1c8f3`](https://github.com/roslovets/SP110E/commit/7c1c8f398c1ee8e1aacf074213cb2ae18082367c))
+
 ## v0.7.1 (2021-11-07)
 ### Fix
 * **Controller:** Optimize configure() ([`0a73f2d`](https://github.com/roslovets/SP110E/commit/0a73f2d0282db046b51f2f1950fcf8be19db9a08))
