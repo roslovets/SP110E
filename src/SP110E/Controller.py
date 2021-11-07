@@ -135,6 +135,15 @@ class Controller:
         """Get list of supported modes."""
         return self.Driver.get_modes()
 
+    async def __aenter__(self):
+        """Enter context callback."""
+        await self.connect()
+        return self
+
+    async def __aexit__(self, *excinfo):
+        """Exit context callback."""
+        await self.disconnect()
+
     async def __connect_with_retries(self):
         """Establish BLE connection to device with retries."""
         for i in range(0, self.Retries + 1):
