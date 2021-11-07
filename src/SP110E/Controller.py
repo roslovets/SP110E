@@ -34,14 +34,15 @@ class Controller:
         """check device is connected."""
         return self.Driver.is_connected()
 
-    async def configure(self, ic_model: str, sequence: str, pixels: int) -> None:
+    async def configure(
+            self,
+            ic_model: str = None, sequence: str = None, pixels: int = None,
+            force: bool = False
+    ) -> None:
         """Configure device."""
-        await self.__connect_with_retries()
-        await self.Driver.write_parameters({
-            'ic_model': ic_model,
-            'sequence': sequence,
-            'pixels': pixels
-        })
+        await self.__connect_and_write_parameter('ic_model', ic_model, force=force)
+        await self.__connect_and_write_parameter('sequence', sequence, force=force)
+        await self.__connect_and_write_parameter('pixels', pixels, force=force)
 
     async def switch_on(self) -> None:
         """Switch device on."""
@@ -156,6 +157,6 @@ class Controller:
 
     async def __connect_and_write_parameter(self, parameter: str, value: Any, force: bool = False) -> None:
         """Write parameter to device with auto connect."""
-        if force or value != self.Driver.get_parameter(parameter):
+        if (value is not None) and (force or value != self.Driver.get_parameter(parameter)):
             await self.__connect_with_retries()
             await self.Driver.write_parameter(parameter, value)
