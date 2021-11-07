@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.7.1 (2021-11-07)
+### Fix
+* **Controller:** Optimize configure() ([`0a73f2d`](https://github.com/roslovets/SP110E/commit/0a73f2d0282db046b51f2f1950fcf8be19db9a08))
+
 ## v0.7.0 (2021-11-07)
 ### Feature
 * **Controller:** Set up context manager ([`47987cc`](https://github.com/roslovets/SP110E/commit/47987cc1dca274806ecc2cdf827d39b0b6997032))
