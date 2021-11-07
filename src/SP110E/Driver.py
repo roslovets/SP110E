@@ -1,3 +1,4 @@
+from typing import Any, Union
 import asyncio
 from bleak import BleakClient, BleakScanner, discover as BleakDiscover
 from bleak.exc import BleakError
@@ -20,7 +21,7 @@ class Driver:
         """Initialize object."""
         self.__handle_parameters(bytearray([0] * 12))
 
-    async def connect(self, mac_address: str, timeout: float = 3.0):
+    async def connect(self, mac_address: str, timeout: float = 3.0, auto_read: bool = True) -> Union[dict, None]:
         """Establish BLE connection to device."""
         device = await BleakScanner.find_device_by_address(mac_address, timeout=timeout)
         if not device:
@@ -28,7 +29,10 @@ class Driver:
         self.Client = BleakClient(device)
         await self.Client.connect()
         await self.Client.start_notify(self.__Characteristic, self.__callback_handler)
-        await self.read_parameters()
+        if auto_read:
+            return await self.read_parameters()
+        else:
+            return None
 
     async def disconnect(self) -> None:
         """Close connection to device."""
@@ -56,43 +60,58 @@ class Driver:
         await asyncio.wait_for(self.__Flag.wait(), 5)
         return self.Parameters
 
-    async def write_parameters(self, parameters: dict) -> dict:
+    async def write_parameter(self, parameter: str, value: Any, auto_read: bool = True) -> Union[dict, None]:
+        """Write device parameter to device."""
+        if parameter == 'state':
+            if value:
+                await self.send_command(0xAA)  # Switch on
+            else:
+                await self.send_command(0xAB)  # Switch off
+        elif parameter == 'mode':
+            if value not in self.__Modes:
+                raise ValueError(f'Mode is not supported: {value}')
+            if value == 0:
+                await self.send_command(0x06)
+            else:
+                await self.send_command(0x2C, value)
+        elif parameter == 'speed':
+            await self.send_command(0x03, value)
+        elif parameter == 'brightness':
+            await self.send_command(0x2A, value)
+        elif parameter == 'ic_model':
+            if value not in self.__ICModels:
+                raise ValueError(f'IC Model is not supported: {value}')
+            idx = self.__ICModels.index(value)
+            await self.send_command(0x1C, idx)
+        elif parameter == 'sequence':
+            if value not in self.__Sequences:
+                raise ValueError(f'Sequence is not supported: {value}')
+            idx = self.__Sequences.index(value)
+            await self.send_command(0x3C, idx)
+        elif parameter == 'pixels':
+            pixels_bytes = value.to_bytes(2, byteorder='big')
+            await self.send_command(0x2D, [pixels_bytes[0], pixels_bytes[1], 0])
+        elif parameter == 'color':
+            await self.send_command(0x1E, value)
+        elif parameter == 'white':
+            await self.send_command(0x69, value)
+        if auto_read:
+            return await self.read_parameters()
+        else:
+            return None
+
+    async def write_parameters(self, parameters: dict, auto_read: bool = True) -> Union[dict, None]:
         """Write device parameters to device in batch mode."""
-        for param, value in parameters.items():
-            if param == 'state':
-                if value:
-                    await self.send_command(0xAA)  # Switch on
-                else:
-                    await self.send_command(0xAB)  # Switch off
-            elif param == 'mode':
-                if value not in self.__Modes:
-                    raise ValueError(f'Mode is not supported: {value}')
-                if value == 0:
-                    await self.send_command(0x06)
-                else:
-                    await self.send_command(0x2C, value)
-            elif param == 'speed':
-                await self.send_command(0x03, value)
-            elif param == 'brightness':
-                await self.send_command(0x2A, value)
-            elif param == 'ic_model':
-                if value not in self.__ICModels:
-                    raise ValueError(f'IC Model is not supported: {value}')
-                idx = self.__ICModels.index(value)
-                await self.send_command(0x1C, idx)
-            elif param == 'sequence':
-                if value not in self.__Sequences:
-                    raise ValueError(f'Sequence is not supported: {value}')
-                idx = self.__Sequences.index(value)
-                await self.send_command(0x3C, idx)
-            elif param == 'pixels':
-                pixels_bytes = value.to_bytes(2, byteorder='big')
-                await self.send_command(0x2D, [pixels_bytes[0], pixels_bytes[1], 0])
-            elif param == 'color':
-                await self.send_command(0x1E, value)
-            elif param == 'white':
-                await self.send_command(0x69, value)
-        return await self.read_parameters()
+        for parameter, value in parameters.items():
+            await self.write_parameter(parameter, value, auto_read=False)
+        if auto_read:
+            return await self.read_parameters()
+        else:
+            return None
+
+    def get_parameter(self, parameter: str) -> Any:
+        """Get read parameter by name."""
+        return self.Parameters[parameter]
 
     def get_parameters(self) -> dict:
         """Get read parameters."""
