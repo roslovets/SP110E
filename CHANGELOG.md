@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.9.0 (2021-11-07)
+### Feature
+* Enforce naming conventions ([`aa2510a`](https://github.com/roslovets/SP110E/commit/aa2510ad3a2362212d87364f99bdfe4d0b9523c3))
+
+### Fix
+* **ControllerSync:** Update, add example ([`5705bca`](https://github.com/roslovets/SP110E/commit/5705bca94fb4989086adf5b8217a04087f2a0de4))
+
 ## v0.8.0 (2021-11-07)
 ### Feature
 * **Controller:** Break configure() method ([`7c1c8f3`](https://github.com/roslovets/SP110E/commit/7c1c8f398c1ee8e1aacf074213cb2ae18082367c))
