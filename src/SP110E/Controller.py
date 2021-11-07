@@ -48,10 +48,10 @@ class Controller:
         await self.set_state(new_state)
         return new_state
 
-    async def update(self):
+    async def update(self) -> dict:
         """Read device parameters."""
         await self.__connect_with_retries()
-        await self.Driver.read_parameters()
+        return await self.Driver.read_parameters()
 
     async def set_ic_model(self, ic_model: str, force: bool = False) -> None:
         """Set device IC model."""
