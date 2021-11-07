@@ -1,5 +1,5 @@
 import asyncio
-from SP110E.Controller import Controller
+from sp110e.сontroller import Controller
 
 
 async def main():

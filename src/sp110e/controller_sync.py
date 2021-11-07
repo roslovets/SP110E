@@ -1,9 +1,9 @@
 from syncer import sync
-from SP110E.Controller import Controller
+from sp110e.сontroller import Controller
 
 
 class ControllerSync(Controller):
-    """Synchronous adapter for high-level SP110E asynchronous controller."""
+    """Synchronous adapter for high-level sp110e asynchronous controller."""
     Controller = None
 
     def __init__(self, mac_address: str = None, timeout: float = 3.0, retries: int = 0):

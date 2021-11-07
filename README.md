@@ -5,7 +5,7 @@ Control SP110E BLE RGB LED device from computer
 ## Install
 
 ```bash
-pip install SP110E
+pip install sp110e
 ```
 
 ## Tools
@@ -17,7 +17,7 @@ pip install SP110E
 ## Examples
 
 ```python
-from SP110E.ControllerSync import ControllerSync
+from sp110e.controller_sync import ControllerSync
 
 device = ControllerSync()
 device.connect('AF:00:10:01:C8:AF')
