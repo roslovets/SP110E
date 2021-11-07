@@ -1,3 +1,4 @@
+from typing import Any, Union
 from SP110E.Driver import Driver, discover as driver_discover
 
 
@@ -22,7 +23,7 @@ class Controller:
 
     async def connect(self):
         """Establish BLE connection to device."""
-        await self.__connect()
+        await self.__connect_with_retries()
 
     async def disconnect(self) -> None:
         """Close connection to device."""
@@ -35,53 +36,56 @@ class Controller:
 
     async def configure(self, ic_model: str, sequence: str, pixels: int) -> None:
         """Configure device."""
-        await self.__connect()
+        await self.__connect_with_retries()
         await self.Driver.write_parameters({
             'ic_model': ic_model,
             'sequence': sequence,
             'pixels': pixels
         })
 
-    async def switch_on(self) -> dict:
+    async def switch_on(self) -> None:
         """Switch device on."""
-        return await self.__write_parameter('state', True)
+        await self.set_state(True)
 
-    async def switch_off(self) -> dict:
+    async def switch_off(self) -> None:
         """Switch device off."""
-        return await self.__write_parameter('state', False)
+        await self.set_state(False)
 
     async def toggle(self) -> bool:
         """Toggle device state between on/off."""
-        if self.__get_parameter('state'):
-            await self.__write_parameter('state', False)
-        else:
-            await self.__write_parameter('state', True)
-        return self.__get_parameter('state')
+        new_state = not self.get_state()
+        await self.set_state(new_state)
+        return new_state
 
     async def update(self):
         """Read device parameters."""
-        await self.__connect()
+        await self.__connect_with_retries()
         await self.Driver.read_parameters()
 
-    async def set_mode(self, mode: int) -> None:
+    async def set_state(self, state: bool, force: bool = False) -> None:
+        """Set device state: on/off."""
+        await self.__connect_and_write_parameter('state', state, force=force)
+
+    async def set_mode(self, mode: int, force: bool = False) -> None:
         """Set work mode (0-121). 0 - auto mode (demo)."""
-        await self.__write_parameter('mode', mode)
+        await self.__connect_and_write_parameter('mode', mode, force=force)
 
-    async def set_speed(self, speed: int) -> None:
+    async def set_speed(self, speed: int, force: bool = False) -> None:
         """Set speed of automatic modes (0-255)."""
-        await self.__write_parameter('speed', speed)
+        await self.__connect_and_write_parameter('speed', speed, force=force)
 
-    async def set_brightness(self, brightness: int) -> None:
+    async def set_brightness(self, brightness: int, force: bool = False) -> None:
         """Set LED brightness (0-255)."""
-        await self.__write_parameter('brightness', brightness)
+        await self.__connect_and_write_parameter('brightness', brightness, force=force)
 
-    async def set_color(self, color: [int, int, int]) -> None:
+    async def set_color(self, color: [int, int, int], force: bool = False) -> None:
         """Set static color in RGB format (0-255)."""
-        await self.__write_parameter('color', color)
+        color = list(color)
+        await self.__connect_and_write_parameter('color', color, force=force)
 
-    async def set_white(self, white: int) -> None:
+    async def set_white(self, white: int, force: bool = False) -> None:
         """Set brightness of white LED (0-255)."""
-        await self.__write_parameter('white', white)
+        await self.__connect_and_write_parameter('white', white, force=force)
 
     def set_mac_address(self, mac_address: str) -> None:
         """Set device MAC address."""
@@ -93,27 +97,31 @@ class Controller:
 
     def is_on(self) -> bool:
         """Check device is On."""
-        return self.__get_parameter('state')
+        return self.get_state()
+
+    def get_state(self) -> bool:
+        """Get device state: on/off."""
+        return self.Driver.get_parameter('state')
 
     def get_mode(self) -> int:
         """Get work mode (0-121). 0 - auto mode (demo)."""
-        return self.__get_parameter('mode')
+        return self.Driver.get_parameter('mode')
 
     def get_speed(self) -> int:
         """Get speed of automatic modes (0-255)."""
-        return self.__get_parameter('speed')
+        return self.Driver.get_parameter('speed')
 
     def get_brightness(self) -> int:
         """Get LED brightness (0-255)."""
-        return self.__get_parameter('brightness')
+        return self.Driver.get_parameter('brightness')
 
     def get_color(self) -> [int, int, int]:
         """Get static color in RGB format (0-255)."""
-        return self.__get_parameter('color')
+        return self.Driver.get_parameter('color')
 
     def get_white(self) -> int:
         """Get brightness of white LED (0-255)."""
-        return self.__get_parameter('white')
+        return self.Driver.get_parameter('white')
 
     def get_sequences(self) -> tuple:
         """Get list of supported RGB sequence types."""
@@ -127,7 +135,7 @@ class Controller:
         """Get list of supported modes."""
         return self.Driver.get_modes()
 
-    async def __connect(self):
+    async def __connect_with_retries(self):
         """Establish BLE connection to device with retries."""
         for i in range(0, self.Retries + 1):
             try:
@@ -137,11 +145,8 @@ class Controller:
                 if i == self.Retries:
                     raise Exception
 
-    def __get_parameter(self, parameter: str):
-        """Get parameter from device."""
-        return self.Driver.get_parameters()[parameter]
-
-    async def __write_parameter(self, parameter: str, value):
-        """Write parameter to device."""
-        await self.__connect()
-        return await self.Driver.write_parameters({parameter: value})
+    async def __connect_and_write_parameter(self, parameter: str, value: Any, force: bool = False) -> None:
+        """Write parameter to device with auto connect."""
+        if force or value != self.Driver.get_parameter(parameter):
+            await self.__connect_with_retries()
+            await self.Driver.write_parameter(parameter, value)
