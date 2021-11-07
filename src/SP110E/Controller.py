@@ -34,16 +34,6 @@ class Controller:
         """check device is connected."""
         return self.Driver.is_connected()
 
-    async def configure(
-            self,
-            ic_model: str = None, sequence: str = None, pixels: int = None,
-            force: bool = False
-    ) -> None:
-        """Configure device."""
-        await self.__connect_and_write_parameter('ic_model', ic_model, force=force)
-        await self.__connect_and_write_parameter('sequence', sequence, force=force)
-        await self.__connect_and_write_parameter('pixels', pixels, force=force)
-
     async def switch_on(self) -> None:
         """Switch device on."""
         await self.set_state(True)
@@ -62,6 +52,18 @@ class Controller:
         """Read device parameters."""
         await self.__connect_with_retries()
         await self.Driver.read_parameters()
+
+    async def set_ic_model(self, ic_model: str, force: bool = False) -> None:
+        """Set device IC model."""
+        await self.__connect_and_write_parameter('ic_model', ic_model, force=force)
+
+    async def set_sequence(self, sequence: str, force: bool = False) -> None:
+        """Set device color sequence."""
+        await self.__connect_and_write_parameter('sequence', sequence, force=force)
+
+    async def set_pixels(self, pixels: int, force: bool = False) -> None:
+        """Set number of pixels in LED strip."""
+        await self.__connect_and_write_parameter('pixels', pixels, force=force)
 
     async def set_state(self, state: bool, force: bool = False) -> None:
         """Set device state: on/off."""
@@ -99,6 +101,18 @@ class Controller:
     def is_on(self) -> bool:
         """Check device is On."""
         return self.get_state()
+
+    def get_ic_model(self) -> str:
+        """Get device IC model."""
+        return self.Driver.get_parameter('ic_model')
+
+    def get_sequence(self) -> str:
+        """Set device color sequence."""
+        return self.Driver.get_parameter('sequence')
+
+    def get_pixels(self) -> int:
+        """Set number of pixels in LED strip."""
+        return self.Driver.get_parameter('pixels')
 
     def get_state(self) -> bool:
         """Get device state: on/off."""
