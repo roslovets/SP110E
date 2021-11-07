@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.7.0 (2021-11-07)
+### Feature
+* **Controller:** Set up context manager ([`47987cc`](https://github.com/roslovets/SP110E/commit/47987cc1dca274806ecc2cdf827d39b0b6997032))
+* Optimize perfomance. 'force' option ([`9fbb9b1`](https://github.com/roslovets/SP110E/commit/9fbb9b160d48d90914d6562f329b39059c83c0e0))
+* **Driver:** Write_parameter(). 'auto_read' option ([`4a1cf0f`](https://github.com/roslovets/SP110E/commit/4a1cf0fa2194f7fc3af245cf85a03c52432c0e77))
+
 ## v0.6.0 (2021-11-05)
 ### Feature
 * **Controller:** Get_mac_address() ([`6d22149`](https://github.com/roslovets/SP110E/commit/6d221499d1c3889e13ac601e8466adae2f7377ed))
