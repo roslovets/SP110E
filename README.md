@@ -16,16 +16,18 @@ pip install sp110e
 
 ## Examples
 
+Quick start:
+
 ```python
 from sp110e.controller_sync import ControllerSync
 
-device = ControllerSync()
-device.connect('AF:00:10:01:C8:AF')
+device = ControllerSync('AF:00:10:01:C8:AF')
 device.switch_on()
 device.set_color([255, 0, 0])
 device.set_brightness(255)
-device.disconnect()
 ```
+
+[More examples](examples)
 
 ## Development
 
