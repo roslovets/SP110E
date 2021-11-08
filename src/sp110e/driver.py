@@ -139,7 +139,7 @@ class Driver:
         """Get list of supported modes."""
         return self.MODES
 
-    def print_info(self):
+    def print_parameters(self):
         """Print device info."""
         for key in self._parameters:
             print(key, ':', self._parameters[key])

@@ -146,6 +146,10 @@ class Controller:
         """Get list of supported modes."""
         return self._driver.get_modes()
 
+    def print_parameters(self):
+        """Print device info."""
+        self._driver.print_parameters()
+
     async def __aenter__(self):
         """Enter context callback."""
         await self.connect()
