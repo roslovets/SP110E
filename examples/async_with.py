@@ -4,6 +4,7 @@ from sp110e.сontroller import Controller
 
 
 async def main():
+    # Device will be connected and disconnected automatically
     async with Controller('AF:00:10:01:C8:AF', timeout=2, retries=1) as device:
         await device.switch_on()
         await device.set_brightness(255)
