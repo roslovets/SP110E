@@ -4,9 +4,9 @@ on:
     push:
         branches:
             - main
-        # paths:
-        #     - src/**
-        #     - pyproject.toml
+        paths:
+            - src/**
+            - pyproject.toml
 
 jobs:
     build_and_publish:
