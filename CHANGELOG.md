@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.9.5 (2021-11-18)
+### Fix
+* **test:** Improve doc ([`8e80940`](https://github.com/roslovets/SP110E/commit/8e8094097445bebba4e04feea6c78688147f9f4b))
+
 ## v0.9.4 (2021-11-18)
 ### Fix
 * **CI:** Build wheel ([`a792678`](https://github.com/roslovets/SP110E/commit/a7926784d678806585ba0014d7988ce4d03eac6f))
