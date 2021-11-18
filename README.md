@@ -31,18 +31,6 @@ device.set_brightness(255)
 
 ## Development
 
-### Activate poetry
-
-```bash
-poetry shell
-```
-
-### Install dev version for testing
-
-```bash
-pip install -e .
-```
-
 ### Create new release
 
 Push changes to 'main' branch
