@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.9.2 (2021-11-18)
+### Fix
+* **test:** Clean CI ([`171ff9c`](https://github.com/roslovets/SP110E/commit/171ff9cc0b8af32b6f5eaa11c7ca05ed3a0ad4c9))
+
 ## v0.9.1 (2021-11-18)
 ### Fix
 * **test:** Rename private property ([`f2d7625`](https://github.com/roslovets/SP110E/commit/f2d7625c1c34e4bd8cc97a690fdc297d51fdb8e7))
