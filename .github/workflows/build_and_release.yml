@@ -25,7 +25,6 @@ jobs:
                   python -m pip install poetry --upgrade pip
                   poetry config virtualenvs.create false
                   poetry install
-                  poetry2setup > setup.py
 
             - name: 📢 Semantic Release
               uses: relekang/python-semantic-release@master
