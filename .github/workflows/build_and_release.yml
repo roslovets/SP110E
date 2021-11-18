@@ -20,6 +20,9 @@ jobs:
             - name: 🔃 Checkout code
               uses: actions/checkout@v2
 
+            - name: 📦 Install poetry
+              run: pip install poetry
+
             - name: 📢 Semantic Release
               uses: bjoluc/semantic-release-config-poetry@v1
               with:
