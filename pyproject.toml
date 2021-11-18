@@ -21,6 +21,7 @@ syncer = "==1.3.0"
 
 [tool.poetry.dev-dependencies]
 python-semantic-release = "==7.19.2"
+poetry2setup = "*"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
