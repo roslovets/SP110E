@@ -1,5 +1,19 @@
 # Changelog
 
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+### [0.9.6](https://github.com/roslovets/SP110E/compare/v0.9.5...v0.9.6) (2021-11-18)
+
+
+### Bug Fixes
+
+* drop src folder ([b0ac0ba](https://github.com/roslovets/SP110E/commit/b0ac0bac9369e4548d0affd7321996c9616b6103))
+* **CI:** build wheel ([1292157](https://github.com/roslovets/SP110E/commit/12921573746b9ad9d1317ca6265a191b60b6f4c7))
+* **CI:** build wheel ([e6918dc](https://github.com/roslovets/SP110E/commit/e6918dc8b9aabd5e55e6268b41612d47fe85e698))
+
+# Changelog
+
 <!--next-version-placeholder-->
 
 ## v0.9.5 (2021-11-18)
