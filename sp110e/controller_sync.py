@@ -1,5 +1,5 @@
 from syncer import sync
-from sp110e.сontroller import Controller
+from sp110e.controller import Controller
 
 
 class ControllerSync(Controller):
