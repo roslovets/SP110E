@@ -25,7 +25,7 @@ class Driver:
     MODES = tuple(range(0, 122))
     _client = None
     _parameters = None
-    _Flag = None
+    _flag = None
 
     def __init__(self):
         """Initialize object."""
@@ -64,10 +64,10 @@ class Driver:
 
     async def read_parameters(self) -> dict:
         """Read parameters information from device."""
-        self._Flag = asyncio.Event()
+        self._flag = asyncio.Event()
         await self.send_command(0x10)
         # Wait for callback with data from device
-        await asyncio.wait_for(self._Flag.wait(), 5)
+        await asyncio.wait_for(self._flag.wait(), 5)
         return self._parameters
 
     async def write_parameter(self, parameter: str, value: Any, auto_read: bool = True) -> Union[dict, None]:
@@ -148,9 +148,9 @@ class Driver:
         """Handle callback with data from device."""
         if sender == 12:
             self._handle_parameters(data)
-        if self._Flag:
+        if self._flag:
             # Let get_info() method to go further
-            self._Flag.set()
+            self._flag.set()
 
     def _handle_parameters(self, data: bytearray):
         """Handle read parameters."""
