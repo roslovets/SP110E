@@ -32,12 +32,12 @@ jobs:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   pypi_token: ${{ secrets.PYPI_TOKEN }}
 
-    create_release:
-        needs: build_and_publish
-        runs-on: ubuntu-latest
-        steps:
-            - name: 🛎️ Create release
-              uses: ncipollo/release-action@v1
-              with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  draft: false
+    # create_release:
+    #     needs: build_and_publish
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - name: 🛎️ Create release
+    #           uses: ncipollo/release-action@v1
+    #           with:
+    #               token: ${{ secrets.GITHUB_TOKEN }}
+    #               draft: false
