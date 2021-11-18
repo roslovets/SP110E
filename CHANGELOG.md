@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.9.1 (2021-11-18)
+### Fix
+* **test:** Rename private property ([`f2d7625`](https://github.com/roslovets/SP110E/commit/f2d7625c1c34e4bd8cc97a690fdc297d51fdb8e7))
+
 ## v0.9.0 (2021-11-07)
 ### Feature
 * Enforce naming conventions ([`aa2510a`](https://github.com/roslovets/SP110E/commit/aa2510ad3a2362212d87364f99bdfe4d0b9523c3))
