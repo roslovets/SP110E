@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.9.3 (2021-11-18)
+### Fix
+* **CI:** Build wheel ([`48341d7`](https://github.com/roslovets/SP110E/commit/48341d7534cdbbacb8a85bd54a6c8e283b9d7ecf))
+
 ## v0.9.2 (2021-11-18)
 ### Fix
 * **test:** Clean CI ([`171ff9c`](https://github.com/roslovets/SP110E/commit/171ff9cc0b8af32b6f5eaa11c7ca05ed3a0ad4c9))
