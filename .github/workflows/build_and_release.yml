@@ -7,6 +7,7 @@ on:
         paths:
             - sp110e/**
             - pyproject.toml
+            - .github/**
 
 jobs:
     build_and_publish:
@@ -26,9 +27,7 @@ jobs:
                 poetry install
 
             - name: Generate docs
-              run: |
-                poetry shell
-                lazydocs --validate sp110e
+              run: lazydocs --validate sp110e
 
             - name: Commit generated docs
               uses: EndBug/add-and-commit@v7
