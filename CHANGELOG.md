@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.9.7](https://github.com/roslovets/SP110E/compare/v0.9.6...v0.9.7) (2021-11-20)
+
+
+### Bug Fixes
+
+* typos ([300d7db](https://github.com/roslovets/SP110E/commit/300d7db92dcd79abb513924d72346d1a073ec2f8))
+
 ### [0.9.6](https://github.com/roslovets/SP110E/compare/v0.9.5...v0.9.6) (2021-11-18)
 
 
