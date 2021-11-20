@@ -3,7 +3,11 @@ from sp110e.driver import Driver, discover as driver_discover
 
 
 class Controller:
-    """High-level sp110e asynchronous controller."""
+    """High-level sp110e asynchronous controller.
+
+    Author: Pavel Roslovets
+    https://roslovets.github.io
+    """
 
     def __init__(self, mac: str, timeout: float = 3.0, retries: int = 0):
         """On object creation."""
