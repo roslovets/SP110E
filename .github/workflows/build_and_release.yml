@@ -23,6 +23,17 @@ jobs:
             - name: 📦 Install poetry
               run: pip install poetry
 
+            - name: Generate docs
+              run: lazydocs --validate sp110e
+
+            - name: Commit generated docs
+              uses: EndBug/add-and-commit@v7
+              with:
+                add: docs
+                message: 'doc: update'
+                committer_name: GitHub Actions
+                committer_email: actions@github.com
+
             - name: 📢 Semantic Release
               uses: bjoluc/semantic-release-config-poetry@v1
               with:
