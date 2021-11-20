@@ -14,6 +14,10 @@ pip install sp110e
 - ControllerSync: Synchronous adapter for high-level SP110E asynchronous controller. Handy tool to use from Python shell or synchronous (normal) environment
 - Driver: Low-level SP110E asynchronous BLE driver based on bleak library. Use it only if you know why
 
+## Documentation
+
+[Full API Reference](./docs)
+
 ## Examples
 
 Quick start:
@@ -35,7 +39,11 @@ device.set_brightness(255)
 
 Push changes to 'main' branch following [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
-### Integrations
+### Update documentation
+
+`docs` folder is being updated automatically by GitHub Actions when source files are changed.
+
+## Integrations
 
 - [SP110E Home Assistant Integration](https://github.com/roslovets/SP110E-HASS)
 

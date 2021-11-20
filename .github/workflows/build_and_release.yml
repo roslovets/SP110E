@@ -27,7 +27,7 @@ jobs:
             - name: Generate docs
               run: |
                 poetry install
-                poetry run lazydocs --validate sp110e
+                poetry run lazydocs --validate sp110e --overview-file README.md
 
             - name: Commit generated docs
               uses: EndBug/add-and-commit@v7
