@@ -27,7 +27,7 @@ class Controller:
             await self._driver.disconnect()
 
     def is_connected(self):
-        """check device is connected."""
+        """Check device is connected."""
         return self._driver.is_connected()
 
     async def switch_on(self) -> None:
