@@ -16,7 +16,11 @@
 ## <kbd>class</kbd> `ControllerSync`
 Synchronous adapter for high-level sp110e asynchronous controller. 
 
-<a href="../sp110e/controller_sync.py#L9"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+Handy tool to use from Python shell or synchronous (normal) env. Inherits all synchronous methods from 'controller' class. 
+
+Author: Pavel Roslovets https://roslovets.github.io 
+
+<a href="../sp110e/controller_sync.py#L16"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `__init__`
 
@@ -31,7 +35,7 @@ On object creation.
 
 ---
 
-<a href="../controller_sync/connect#L18"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../controller_sync/connect#L25"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `connect`
 
@@ -43,7 +47,7 @@ Establish BLE connection to device.
 
 ---
 
-<a href="../controller_sync/disconnect#L23"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../controller_sync/disconnect#L30"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `disconnect`
 
@@ -55,7 +59,7 @@ Close connection to device.
 
 ---
 
-<a href="../controller_sync/discover#L13"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../controller_sync/discover#L20"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `discover`
 
@@ -67,7 +71,7 @@ Discover BLE devices.
 
 ---
 
-<a href="../controller_sync/set_brightness#L75"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../controller_sync/set_brightness#L82"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_brightness`
 
@@ -79,7 +83,7 @@ Set LED brightness (0-255).
 
 ---
 
-<a href="../controller_sync/set_color#L80"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../controller_sync/set_color#L87"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_color`
 
@@ -94,7 +98,7 @@ Set static color in RGB format (0-255).
 
 ---
 
-<a href="../controller_sync/set_ic_model#L51"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../controller_sync/set_ic_model#L58"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_ic_model`
 
@@ -106,7 +110,7 @@ Set device IC model.
 
 ---
 
-<a href="../controller_sync/set_mode#L65"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../controller_sync/set_mode#L72"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_mode`
 
@@ -118,7 +122,7 @@ Set work mode (0-121). 0 - auto mode (demo).
 
 ---
 
-<a href="../controller_sync/set_pixels#L61"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../controller_sync/set_pixels#L68"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_pixels`
 
@@ -132,7 +136,7 @@ set_pixels(pixels: int, force: bool = False) → None
 
 ---
 
-<a href="../controller_sync/set_sequence#L56"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../controller_sync/set_sequence#L63"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_sequence`
 
@@ -144,7 +148,7 @@ Set device color sequence.
 
 ---
 
-<a href="../controller_sync/set_speed#L70"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../controller_sync/set_speed#L77"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_speed`
 
@@ -156,7 +160,7 @@ Set speed of automatic modes (0-255).
 
 ---
 
-<a href="../controller_sync/set_white#L85"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../controller_sync/set_white#L92"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_white`
 
@@ -168,7 +172,7 @@ Set brightness of white LED (0-255).
 
 ---
 
-<a href="../controller_sync/switch_off#L36"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../controller_sync/switch_off#L43"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `switch_off`
 
@@ -180,7 +184,7 @@ Switch device off.
 
 ---
 
-<a href="../controller_sync/switch_on#L31"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../controller_sync/switch_on#L38"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `switch_on`
 
@@ -192,7 +196,7 @@ Switch device on.
 
 ---
 
-<a href="../controller_sync/toggle#L41"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../controller_sync/toggle#L48"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `toggle`
 
@@ -204,7 +208,7 @@ Toggle device state between on/off.
 
 ---
 
-<a href="../controller_sync/update#L46"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../controller_sync/update#L53"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update`
 

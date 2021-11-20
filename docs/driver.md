@@ -28,7 +28,11 @@ Discover BLE devices.
 ## <kbd>class</kbd> `Driver`
 Low-level sp110e asynchronous BLE driver based on bleak library. 
 
-<a href="../sp110e/driver.py#L30"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+Use it only if you know why. 
+
+Author: Pavel Roslovets https://roslovets.github.io 
+
+<a href="../sp110e/driver.py#L36"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `__init__`
 
@@ -43,7 +47,7 @@ Initialize object.
 
 ---
 
-<a href="../sp110e/driver.py#L34"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L40"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `connect`
 
@@ -59,7 +63,7 @@ Establish BLE connection to device.
 
 ---
 
-<a href="../sp110e/driver.py#L47"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L53"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `disconnect`
 
@@ -71,7 +75,7 @@ Close connection to device.
 
 ---
 
-<a href="../sp110e/driver.py#L134"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L140"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_ic_models`
 
@@ -83,7 +87,7 @@ Get list of supported IC models.
 
 ---
 
-<a href="../sp110e/driver.py#L138"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L144"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_modes`
 
@@ -95,7 +99,7 @@ Get list of supported modes.
 
 ---
 
-<a href="../sp110e/driver.py#L122"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L128"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_parameter`
 
@@ -107,7 +111,7 @@ Get read parameter by name.
 
 ---
 
-<a href="../sp110e/driver.py#L126"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L132"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_parameters`
 
@@ -119,7 +123,7 @@ Get read parameters.
 
 ---
 
-<a href="../sp110e/driver.py#L130"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L136"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_sequences`
 
@@ -131,7 +135,7 @@ Get list of supported RGB sequence types.
 
 ---
 
-<a href="../sp110e/driver.py#L51"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L57"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `is_connected`
 
@@ -143,7 +147,7 @@ Check connection to device.
 
 ---
 
-<a href="../sp110e/driver.py#L142"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L148"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `print_parameters`
 
@@ -155,7 +159,7 @@ Print device info.
 
 ---
 
-<a href="../sp110e/driver.py#L65"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L71"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `read_parameters`
 
@@ -167,7 +171,7 @@ Read parameters information from device.
 
 ---
 
-<a href="../sp110e/driver.py#L58"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L64"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `send_command`
 
@@ -182,7 +186,7 @@ Send command with data.
 
 ---
 
-<a href="../sp110e/driver.py#L73"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L79"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `write_parameter`
 
@@ -198,7 +202,7 @@ Write device parameter to device.
 
 ---
 
-<a href="../sp110e/driver.py#L113"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L119"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `write_parameters`
 
