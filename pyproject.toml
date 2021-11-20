@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sp110e"
-version = "0.9.7"
+version = "1.0.0"
 description = "Control SP110E BLE RGB LED device from computer"
 authors = ["Pavel Roslovets <p.v.roslovets@gmail.com>"]
 license = "MIT"

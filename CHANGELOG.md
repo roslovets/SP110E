@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0](https://github.com/roslovets/SP110E/compare/v0.9.7...v1.0.0) (2021-11-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* **doc:** add classes description
+
+### Bug Fixes
+
+* **doc:** add classes description ([dda5758](https://github.com/roslovets/SP110E/commit/dda5758e824922a3950cbdca79c0223b38e759df))
+
 ### [0.9.7](https://github.com/roslovets/SP110E/compare/v0.9.6...v0.9.7) (2021-11-20)
 
 
