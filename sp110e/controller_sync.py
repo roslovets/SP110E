@@ -3,7 +3,14 @@ from sp110e.controller import Controller
 
 
 class ControllerSync(Controller):
-    """Synchronous adapter for high-level sp110e asynchronous controller."""
+    """Synchronous adapter for high-level sp110e asynchronous controller.
+
+    Handy tool to use from Python shell or synchronous (normal) env.
+    Inherits all synchronous methods from 'controller' class.
+
+    Author: Pavel Roslovets
+    https://roslovets.github.io
+    """
     Controller = None
 
     def __init__(self, mac_address: str = None, timeout: float = 3.0, retries: int = 0):

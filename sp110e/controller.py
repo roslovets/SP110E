@@ -5,6 +5,8 @@ from sp110e.driver import Driver, discover as driver_discover
 class Controller:
     """High-level sp110e asynchronous controller.
 
+    Use it only in asynchronous environment (with `asyncio`).
+
     Author: Pavel Roslovets
     https://roslovets.github.io
     """
