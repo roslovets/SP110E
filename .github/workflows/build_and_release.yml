@@ -21,7 +21,9 @@ jobs:
               uses: actions/checkout@v2
 
             - name: 📦 Install poetry
-              run: pip install poetry
+              run: |
+                pip install poetry
+                poetry install
 
             - name: Generate docs
               run: lazydocs --validate sp110e
