@@ -24,8 +24,8 @@ class Driver:
     """
     IC_MODELS = (
         'SM16703', 'TM1804', 'UCS1903', 'WS2811', 'WS2801', 'SK6812', 'LPD6803', 'LPD8806', 'APA102', 'APA105',
-        'DMX512', 'TM1914', 'TM1913', 'P9813', 'INK1003', 'P943S', 'P9411', 'P9413', 'TX1812', 'TX1813', 'GS8206',
-        'GS8208', 'SK9822', 'TM1814', 'SK6812_RGBW', 'P9414', 'PG412')
+        'DMX512', 'TM1914', 'TM1913', 'P9813', 'INK1003', 'P943S', 'P9411', 'P9413', 'TX1812', 'TX1813',
+        'GS8206', 'GS8208', 'SK9822', 'TM1814', 'SK6812_RGBW', 'P9414', 'PG412')
     SEQUENCES = ('RGB', 'RBG', 'GRB', 'GBR', 'BRG', 'BGR')
     CHARACTERISTIC = '0000ffe1-0000-1000-8000-00805f9b34fb'
     MODES = tuple(range(0, 122))
@@ -140,6 +140,13 @@ class Driver:
     def get_ic_models(self) -> tuple:
         """Get list of supported IC models."""
         return self.IC_MODELS
+
+    def is_ic_model_rgbw(self, ic_model: str = None) -> bool:
+        """Check IC model supports RGBW mode."""
+        if not ic_model:
+            ic_model = self.get_parameter('ic_model')
+        idx = self.IC_MODELS.index(ic_model)
+        return idx > 22
 
     def get_modes(self) -> tuple:
         """Get list of supported modes."""
