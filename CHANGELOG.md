@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/roslovets/SP110E/compare/v1.0.0...v1.1.0) (2021-11-22)
+
+
+### Features
+
+* **driver:** is_ic_model_rgbw() ([ae36b85](https://github.com/roslovets/SP110E/commit/ae36b85dd548eb9347125ae4099182fee2e44371))
+* **driver:** is_rgbw() ([998d64d](https://github.com/roslovets/SP110E/commit/998d64de67e6812f07f5a99390b3d64eec6045a0))
+
 ## [1.0.0](https://github.com/roslovets/SP110E/compare/v0.9.7...v1.0.0) (2021-11-20)
 
 
