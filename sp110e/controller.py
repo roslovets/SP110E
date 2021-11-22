@@ -36,6 +36,10 @@ class Controller:
         """Check device is connected."""
         return self._driver.is_connected()
 
+    def is_rgbw(self) -> bool:
+        """Check IC model supports RGBW mode."""
+        return self._driver.is_ic_model_rgbw()
+
     async def switch_on(self) -> None:
         """Switch device on."""
         await self.set_state(True)
@@ -85,8 +89,7 @@ class Controller:
 
     async def set_color(self, color: [int, int, int], force: bool = False) -> None:
         """Set static color in RGB format (0-255)."""
-        color = list(color)
-        await self._connect_and_write_parameter('color', color, force=force)
+        await self._connect_and_write_parameter('color', list(color), force=force)
 
     async def set_white(self, white: int, force: bool = False) -> None:
         """Set brightness of white LED (0-255)."""
