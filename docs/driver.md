@@ -87,7 +87,7 @@ Get list of supported IC models.
 
 ---
 
-<a href="../sp110e/driver.py#L144"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L151"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_modes`
 
@@ -147,7 +147,19 @@ Check connection to device.
 
 ---
 
-<a href="../sp110e/driver.py#L148"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L144"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>method</kbd> `is_ic_model_rgbw`
+
+```python
+is_ic_model_rgbw(ic_model: str = None) → bool
+```
+
+Check IC model supports RGBW mode. 
+
+---
+
+<a href="../sp110e/driver.py#L155"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `print_parameters`
 
