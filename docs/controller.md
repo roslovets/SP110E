@@ -35,7 +35,19 @@ On object creation.
 
 ---
 
-<a href="../sp110e/controller.py#L26"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L104"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>method</kbd> `add_preset`
+
+```python
+add_preset(name: str, params: dict)
+```
+
+Add preset to control device parameters. 
+
+---
+
+<a href="../sp110e/controller.py#L27"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `connect`
 
@@ -47,7 +59,7 @@ Establish BLE connection to device.
 
 ---
 
-<a href="../sp110e/controller.py#L30"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L31"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `disconnect`
 
@@ -59,7 +71,7 @@ Close connection to device.
 
 ---
 
-<a href="../sp110e/controller.py#L21"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L22"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `discover`
 
@@ -71,7 +83,7 @@ Discover BLE devices.
 
 ---
 
-<a href="../sp110e/controller.py#L134"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L156"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_brightness`
 
@@ -83,7 +95,7 @@ Get LED brightness (0-255).
 
 ---
 
-<a href="../sp110e/controller.py#L138"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L160"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_color`
 
@@ -95,7 +107,7 @@ Get static color in RGB format (0-255).
 
 ---
 
-<a href="../sp110e/controller.py#L110"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L132"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_ic_model`
 
@@ -107,7 +119,7 @@ Get device IC model.
 
 ---
 
-<a href="../sp110e/controller.py#L150"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L172"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_ic_models`
 
@@ -119,7 +131,7 @@ Get list of supported IC models.
 
 ---
 
-<a href="../sp110e/controller.py#L102"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L124"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_mac_address`
 
@@ -131,7 +143,7 @@ Get device MAC address.
 
 ---
 
-<a href="../sp110e/controller.py#L126"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L148"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_mode`
 
@@ -143,7 +155,7 @@ Get work mode (0-121). 0 - auto mode (demo).
 
 ---
 
-<a href="../sp110e/controller.py#L154"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L176"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_modes`
 
@@ -155,7 +167,7 @@ Get list of supported modes.
 
 ---
 
-<a href="../sp110e/controller.py#L118"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L140"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_pixels`
 
@@ -167,7 +179,19 @@ Set number of pixels in LED strip.
 
 ---
 
-<a href="../sp110e/controller.py#L114"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L120"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>method</kbd> `get_preset`
+
+```python
+get_preset(name: str) → dict
+```
+
+Get defined preset. 
+
+---
+
+<a href="../sp110e/controller.py#L136"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_sequence`
 
@@ -179,7 +203,7 @@ Set device color sequence.
 
 ---
 
-<a href="../sp110e/controller.py#L146"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L168"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_sequences`
 
@@ -191,7 +215,7 @@ Get list of supported RGB sequence types.
 
 ---
 
-<a href="../sp110e/controller.py#L130"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L152"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_speed`
 
@@ -203,7 +227,7 @@ Get speed of automatic modes (0-255).
 
 ---
 
-<a href="../sp110e/controller.py#L122"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L144"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_state`
 
@@ -215,7 +239,7 @@ Get device state: on/off.
 
 ---
 
-<a href="../sp110e/controller.py#L142"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L164"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_white`
 
@@ -227,7 +251,7 @@ Get brightness of white LED (0-255).
 
 ---
 
-<a href="../sp110e/controller.py#L35"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L36"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `is_connected`
 
@@ -239,7 +263,7 @@ Check device is connected.
 
 ---
 
-<a href="../sp110e/controller.py#L106"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L128"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `is_on`
 
@@ -251,7 +275,7 @@ Check device is On.
 
 ---
 
-<a href="../sp110e/controller.py#L39"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L40"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `is_rgbw`
 
@@ -263,7 +287,7 @@ Check IC model supports RGBW mode.
 
 ---
 
-<a href="../sp110e/controller.py#L158"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L180"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `print_parameters`
 
@@ -275,7 +299,7 @@ Print device info.
 
 ---
 
-<a href="../sp110e/controller.py#L86"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L87"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_brightness`
 
@@ -287,7 +311,7 @@ Set LED brightness (0-255).
 
 ---
 
-<a href="../sp110e/controller.py#L90"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L91"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_color`
 
@@ -302,7 +326,7 @@ Set static color in RGB format (0-255).
 
 ---
 
-<a href="../sp110e/controller.py#L62"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L63"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_ic_model`
 
@@ -314,7 +338,7 @@ Set device IC model.
 
 ---
 
-<a href="../sp110e/controller.py#L98"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L116"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_mac_address`
 
@@ -326,7 +350,7 @@ Set device MAC address.
 
 ---
 
-<a href="../sp110e/controller.py#L78"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L79"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_mode`
 
@@ -338,7 +362,7 @@ Set work mode (0-121). 0 - auto mode (demo).
 
 ---
 
-<a href="../sp110e/controller.py#L70"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L71"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_pixels`
 
@@ -350,7 +374,19 @@ Set number of pixels in LED strip.
 
 ---
 
-<a href="../sp110e/controller.py#L66"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L99"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>method</kbd> `set_preset`
+
+```python
+set_preset(name: str, force: bool = False)
+```
+
+Select defined preset. 
+
+---
+
+<a href="../sp110e/controller.py#L67"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_sequence`
 
@@ -362,7 +398,7 @@ Set device color sequence.
 
 ---
 
-<a href="../sp110e/controller.py#L82"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L83"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_speed`
 
@@ -374,7 +410,7 @@ Set speed of automatic modes (0-255).
 
 ---
 
-<a href="../sp110e/controller.py#L74"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L75"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_state`
 
@@ -386,7 +422,7 @@ Set device state: on/off.
 
 ---
 
-<a href="../sp110e/controller.py#L94"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L95"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_white`
 
@@ -398,7 +434,7 @@ Set brightness of white LED (0-255).
 
 ---
 
-<a href="../sp110e/controller.py#L47"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L48"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `switch_off`
 
@@ -410,7 +446,7 @@ Switch device off.
 
 ---
 
-<a href="../sp110e/controller.py#L43"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L44"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `switch_on`
 
@@ -422,7 +458,7 @@ Switch device on.
 
 ---
 
-<a href="../sp110e/controller.py#L51"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L52"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `toggle`
 
@@ -434,7 +470,7 @@ Toggle device state between on/off.
 
 ---
 
-<a href="../sp110e/controller.py#L57"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/controller.py#L58"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `update`
 

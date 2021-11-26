@@ -75,7 +75,7 @@ Close connection to device.
 
 ---
 
-<a href="../sp110e/driver.py#L140"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L107"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_ic_models`
 
@@ -87,7 +87,7 @@ Get list of supported IC models.
 
 ---
 
-<a href="../sp110e/driver.py#L151"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L118"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_modes`
 
@@ -99,7 +99,7 @@ Get list of supported modes.
 
 ---
 
-<a href="../sp110e/driver.py#L128"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L95"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_parameter`
 
@@ -111,7 +111,7 @@ Get read parameter by name.
 
 ---
 
-<a href="../sp110e/driver.py#L132"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L99"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_parameters`
 
@@ -123,7 +123,7 @@ Get read parameters.
 
 ---
 
-<a href="../sp110e/driver.py#L136"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L103"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_sequences`
 
@@ -147,7 +147,7 @@ Check connection to device.
 
 ---
 
-<a href="../sp110e/driver.py#L144"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L111"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `is_ic_model_rgbw`
 
@@ -159,7 +159,7 @@ Check IC model supports RGBW mode.
 
 ---
 
-<a href="../sp110e/driver.py#L155"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L122"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `print_parameters`
 
@@ -198,7 +198,7 @@ Send command with data.
 
 ---
 
-<a href="../sp110e/driver.py#L79"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L91"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `write_parameter`
 
@@ -214,7 +214,7 @@ Write device parameter to device.
 
 ---
 
-<a href="../sp110e/driver.py#L119"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../sp110e/driver.py#L82"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `write_parameters`
 

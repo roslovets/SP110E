@@ -136,6 +136,18 @@ set_pixels(pixels: int, force: bool = False) → None
 
 ---
 
+<a href="../controller_sync/set_preset#L97"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>method</kbd> `set_preset`
+
+```python
+set_preset(name: str, force: bool = False) → None
+```
+
+Select specified preset. 
+
+---
+
 <a href="../controller_sync/set_sequence#L63"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `set_sequence`
