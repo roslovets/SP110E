@@ -73,10 +73,58 @@ class Driver:
         self._flag = asyncio.Event()
         await self.send_command(0x10)
         # Wait for callback with data from device
-        await asyncio.wait_for(self._flag.wait(), 5)
+        try:
+            await asyncio.wait_for(self._flag.wait(), 1)
+        except Exception:
+            pass
         return self._parameters
 
+    async def write_parameters(self, parameters: dict, auto_read: bool = True) -> Union[dict, None]:
+        """Write device parameters to device in batch mode."""
+        for parameter, value in parameters.items():
+            await self._write_parameter(parameter, value, auto_read=False)
+        if auto_read:
+            return await self.read_parameters()
+        else:
+            return None
+
     async def write_parameter(self, parameter: str, value: Any, auto_read: bool = True) -> Union[dict, None]:
+        """Write device parameter to device."""
+        return await self._write_parameter(parameter, value, auto_read)
+
+    def get_parameter(self, parameter: str) -> Any:
+        """Get read parameter by name."""
+        return self._parameters[parameter]
+
+    def get_parameters(self) -> dict:
+        """Get read parameters."""
+        return self._parameters
+
+    def get_sequences(self) -> tuple:
+        """Get list of supported RGB sequence types."""
+        return self.SEQUENCES
+
+    def get_ic_models(self) -> tuple:
+        """Get list of supported IC models."""
+        return self.IC_MODELS
+
+    def is_ic_model_rgbw(self, ic_model: str = None) -> bool:
+        """Check IC model supports RGBW mode."""
+        if not ic_model:
+            ic_model = self.get_parameter('ic_model')
+        idx = self.IC_MODELS.index(ic_model)
+        return idx > 22
+
+    def get_modes(self) -> tuple:
+        """Get list of supported modes."""
+        return self.MODES
+
+    def print_parameters(self):
+        """Print device info."""
+        for key in self._parameters:
+            print(key, ':', self._parameters[key])
+
+    async def _write_parameter(self, parameter: str, value: Any, auto_read: bool = True) -> Union[dict, None]:
         """Write device parameter to device."""
         if parameter == 'state':
             if value:
@@ -115,47 +163,6 @@ class Driver:
             return await self.read_parameters()
         else:
             return None
-
-    async def write_parameters(self, parameters: dict, auto_read: bool = True) -> Union[dict, None]:
-        """Write device parameters to device in batch mode."""
-        for parameter, value in parameters.items():
-            await self.write_parameter(parameter, value, auto_read=False)
-        if auto_read:
-            return await self.read_parameters()
-        else:
-            return None
-
-    def get_parameter(self, parameter: str) -> Any:
-        """Get read parameter by name."""
-        return self._parameters[parameter]
-
-    def get_parameters(self) -> dict:
-        """Get read parameters."""
-        return self._parameters
-
-    def get_sequences(self) -> tuple:
-        """Get list of supported RGB sequence types."""
-        return self.SEQUENCES
-
-    def get_ic_models(self) -> tuple:
-        """Get list of supported IC models."""
-        return self.IC_MODELS
-
-    def is_ic_model_rgbw(self, ic_model: str = None) -> bool:
-        """Check IC model supports RGBW mode."""
-        if not ic_model:
-            ic_model = self.get_parameter('ic_model')
-        idx = self.IC_MODELS.index(ic_model)
-        return idx > 22
-
-    def get_modes(self) -> tuple:
-        """Get list of supported modes."""
-        return self.MODES
-
-    def print_parameters(self):
-        """Print device info."""
-        for key in self._parameters:
-            print(key, ':', self._parameters[key])
 
     def _callback_handler(self, sender, data: bytearray):
         """Handle callback with data from device."""
