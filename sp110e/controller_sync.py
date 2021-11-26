@@ -94,6 +94,11 @@ class ControllerSync(Controller):
         """Set brightness of white LED (0-255)."""
         await super().set_white(white, force)
 
+    @sync
+    async def set_preset(self, name: str, force: bool = False) -> None:
+        """Select specified preset."""
+        await super().set_preset(name, force)
+
     def __del__(self) -> None:
         """On object destruction."""
         self.disconnect()
