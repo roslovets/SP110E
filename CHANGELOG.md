@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.0](https://github.com/roslovets/SP110E/compare/v1.1.0...v1.2.0) (2021-11-26)
+
+
+### Features
+
+* **controller:** add parameters presets ([78a93f9](https://github.com/roslovets/SP110E/commit/78a93f9135f5106a0e6f7e9d3e9f021eb1b59fff))
+* **driver:** improve speed and stability ([4073c81](https://github.com/roslovets/SP110E/commit/4073c815278b16c84fcc2cf826089012ebbe8cea))
+
 ## [1.1.0](https://github.com/roslovets/SP110E/compare/v1.0.0...v1.1.0) (2021-11-22)
 
 
