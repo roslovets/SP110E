@@ -15,7 +15,7 @@ async def main():
     await device.write_parameter('color', [0, 255, 0])
     await device.write_parameter('brightness', 50)
     await device.write_parameter('white', 0)
-    await device.write_parameter('speed', 50)
+    await device.write_parameters({'mode': 0, 'speed': 50})
     device.print_parameters()
     await device.disconnect()
 
