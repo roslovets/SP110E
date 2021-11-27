@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Union
 from sp110e.driver import Driver, discover as driver_discover
 
 
@@ -17,7 +17,7 @@ class Controller:
         self._timeout = timeout
         self._retries = retries
         self._driver = Driver()
-        self._presets = {}
+        self._presets = []
 
     @staticmethod
     async def discover() -> list:
@@ -98,37 +98,38 @@ class Controller:
 
     async def set_preset(self, name: str, force: bool = False):
         """Select defined preset."""
-        parameters = self._presets[name]
+        preset, _ = self._find_preset(name)
+        parameters = {
+            'state': preset.get('state', None),
+            'mode': preset.get('mode', None),
+            'speed': preset.get('speed', None),
+            'brightness': preset.get('brightness', None),
+            'color': preset.get('color', None),
+            'white': preset.get('white', None)
+        }
         await self._connect_and_write_parameters(parameters, force=force)
 
-    def add_preset(self, name: str, params: dict):
+    def add_preset(self, preset: dict):
         """Add preset to control device parameters."""
-        self._presets[name] = {
-            'name': params.get('name', None),
-            'state': params.get('state', None),
-            'mode': params.get('mode', None),
-            'speed': params.get('speed', None),
-            'brightness': params.get('brightness', None),
-            'color': params.get('color', None),
-            'white': params.get('white', None)
-        }
-
-    def add_presets(self, presets: dict):
-        """Add presets to control device parameters in batch mode."""
-        for preset_name in presets:
-            self.add_preset(preset_name, presets[preset_name])
+        name = preset['name']
+        _, index = self._find_preset(name)
+        if index is not None:
+            self._presets[index] = preset
+        else:
+            self._presets.append(preset)
 
     def set_mac_address(self, mac_address: str) -> None:
         """Set device MAC address."""
         self._mac = mac_address
 
-    def get_presets(self) -> dict:
+    def get_presets(self) -> list:
         """Get all defined presets."""
         return self._presets
 
-    def get_preset(self, name: str) -> dict:
+    def get_preset(self, name: str) -> Union[dict, None]:
         """Get defined preset by name."""
-        return self._presets[name]
+        preset, _ = self._find_preset(name)
+        return preset
 
     def get_mac_address(self) -> str:
         """Get device MAC address."""
@@ -219,3 +220,12 @@ class Controller:
         if parameters_to_write:
             await self._connect_with_retries()
             await self._driver.write_parameters(parameters_to_write)
+
+    def _find_preset(self, name: str) -> (dict, int):
+        """Find defined preset by name."""
+        index = next((index for (index, d) in enumerate(self._presets) if d['name'] == name), None)
+        if index is not None:
+            preset = self._presets[index]
+        else:
+            preset = None
+        return preset, index
