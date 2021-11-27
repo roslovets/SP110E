@@ -113,12 +113,21 @@ class Controller:
             'white': params.get('white', None)
         }
 
+    def add_presets(self, presets: dict):
+        """Add presets to control device parameters in batch mode."""
+        for preset_name in presets:
+            self.add_preset(preset_name, presets[preset_name])
+
     def set_mac_address(self, mac_address: str) -> None:
         """Set device MAC address."""
         self._mac = mac_address
 
+    def get_presets(self) -> dict:
+        """Get all defined presets."""
+        return self._presets
+
     def get_preset(self, name: str) -> dict:
-        """Get defined preset."""
+        """Get defined preset by name."""
         return self._presets[name]
 
     def get_mac_address(self) -> str:
