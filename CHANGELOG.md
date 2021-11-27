@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.0](https://github.com/roslovets/SP110E/compare/v1.3.0...v1.4.0) (2021-11-27)
+
+
+### Features
+
+* **controller:** 'force' option for switch_on(), switch_off() ([f53a4e6](https://github.com/roslovets/SP110E/commit/f53a4e6ae67f9ec1386c8b80624cfba27110f7b8))
+* **controller:** redesign presets functionality ([843f5c0](https://github.com/roslovets/SP110E/commit/843f5c0c0bc9b429299999cd320b01382e4fbab5))
+
 ## [1.3.0](https://github.com/roslovets/SP110E/compare/v1.2.0...v1.3.0) (2021-11-27)
 
 
