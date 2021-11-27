@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.0](https://github.com/roslovets/SP110E/compare/v1.2.0...v1.3.0) (2021-11-27)
+
+
+### Features
+
+* **controller:** add more presets functionality ([f534581](https://github.com/roslovets/SP110E/commit/f53458131d474af5337c4fa9f13f223cad522fd6))
+
 ## [1.2.0](https://github.com/roslovets/SP110E/compare/v1.1.0...v1.2.0) (2021-11-26)
 
 
