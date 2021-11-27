@@ -41,13 +41,13 @@ class Controller:
         """Check IC model supports RGBW mode."""
         return self._driver.is_ic_model_rgbw()
 
-    async def switch_on(self) -> None:
+    async def switch_on(self, force: bool = False) -> None:
         """Switch device on."""
-        await self.set_state(True)
+        await self.set_state(True, force=force)
 
-    async def switch_off(self) -> None:
+    async def switch_off(self, force: bool = False) -> None:
         """Switch device off."""
-        await self.set_state(False)
+        await self.set_state(False, force=force)
 
     async def toggle(self) -> bool:
         """Toggle device state between on/off."""
