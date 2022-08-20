@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [1.4.1](https://github.com/roslovets/SP110E/compare/v1.4.0...v1.4.1) (2022-08-20)
+
+
+### Bug Fixes
+
+* requirements ([2c7beb7](https://github.com/roslovets/SP110E/commit/2c7beb716a274a09a81cfeae1ebda20a463c31f2))
+
 ## [1.4.0](https://github.com/roslovets/SP110E/compare/v1.3.0...v1.4.0) (2021-11-27)
 
 
