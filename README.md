@@ -53,3 +53,7 @@ Push changes to 'main' branch following [Conventional Commits](https://www.conve
 - [Vox](https://github.com/nguyenthuongvo/Vox)
 - [bleak library](https://github.com/hbldh/bleak)
 - [Reverse engineering simple BLE](http://nilhcem.com/iot/reverse-engineering-simple-bluetooth-devices)
+
+## ⭐️ Show your support
+
+Give a star if this project helped you.
